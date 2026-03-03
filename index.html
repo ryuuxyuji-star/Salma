@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special for Salma</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #87CEEB; /* Biru cerah sesuai request */
+            transition: background 1.5s ease;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* Container Utama */
+        #main-card {
+            width: 85%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .hidden { display: none; }
+
+        /* Hiasan Balon */
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 30px;
+            height: 40px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
+        }
+
+        /* Kado Gerak-gerak */
+        #gift-box {
+            font-size: 80px;
+            cursor: pointer;
+            display: inline-block;
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: rotate(0); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(0); }
+            75% { transform: rotate(-5deg); }
+            100% { transform: rotate(0); }
+        }
+
+        h1 { color: #2c3e50; font-size: 24px; }
+        p { color: #34495e; font-size: 16px; line-height: 1.6; }
+        
+        .btn-lanjut {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        /* Gaya Pesan Rahasia */
+        .secret-note {
+            background: #1a1a1a !important;
+            color: #ff4d4d !important;
+            border: 2px solid #ff0000;
+        }
+        
+        #secret-text {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .heart-icon {
+            font-size: 50px;
+            color: #ff0000;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="music1" src="Music1.mp3" loop></audio>
+    <audio id="music2" src="bgm2.mp3" loop></audio>
+    <audio id="popSound" src="pop.mp3"></audio>
+
+    <div id="start-overlay" style="z-index: 100;">
+        <button class="btn-lanjut" onclick="startApp()" style="font-size: 20px;">Aku ada kejutan nih, Klik Oke!</button>
+    </div>
+
+    <div id="main-card" class="hidden">
+        <div id="step1">
+            <h1>HBD Salma! 🥳</h1>
+            <div id="gift-box" onclick="openGift()">🎁</div>
+            <p>Ada kado buat kamu, coba dipencet!</p>
+        </div>
+
+        <div id="step2" class="hidden">
+            <img src="https://i.postimg.cc/DzHFL94M/gambar2.jpg" style="width: 80%; max-width: 250px; display: block; margin: 15px auto; border-radius: 10px; margin-top: 10px;">
+            <p style="font-weight: bold; font-size: 20px;">Selamat ulang tahun salma, moga panjang umur dan sehat selalu... 🥳</p>
+            <p>Jadi ini pesan yang ingin ku sampaikan di ulang tahun mu... tapi tidak dengan perilaku dan tingginya 🤭 wkkwkw.</p>
+            <p>Sebenarnya aku pen bet ngasih kado lagi... tapi kau nolak kan? Kalau kau nolak aku akan berusaha sampai kau nerima :3</p>
+            <p>dan web ini aku gak cuman buat sendirian, di bantu ama dua asistenku juga sena&albedo,dan plis pusing banget </p>
+            <p>dan yapp, web ini terlihat kosong dan polos, jelas soalnya pertama kali wkwk, tapi moga aja kau tetep suka lah yah</p>
+            <p>dan doaku untuk kamu salma, moga aja kau cepet tinggi, makin pintar, makin imut ekhemm, makin sholehah, dan bisa jadi ibu rumah tangga idaman 🤭</p>
+            <p>dan maaf banget kalau aku emang suka ganggu, atau ngerusak waktu kamu atau sering bikin kamu gak nyaman, maaf banget... </p>
+            <p>dan yap itu aja, Semoga kau suka dan di akhir aku punya... sedikit pesan yang cukup dalam jadi moga aja ini bisa menjawab semuanya.....</p>
+            <img src="https://i.postimg.cc/nrTPYmw4/gambar1.jpg" style="width: 80%; max-width: 250px; display: block; margin: 15px auto; border-radius: 10px;">
+            <button class="btn-lanjut" onclick="showSecret()">Lanjut baca surat... ✉️</button>
+        </div>
+
+        <div id="step3" class="hidden">
+            <h2 style="color: #ff4d4d;">Pesan Tersembunyi... 🖤</h2>
+            <div class="heart-icon">❤️</div>
+            <p id="secret-text">
+                Sebenarnya aku masih suka kamu walau sampai kapanpun aku tetap gak bisa move on,wajahmh itu, sikapmu, perilakumu apapun dari dirimu itu bikin aku setiap hari termotivasi,apa lagi hobi yang kebetulan sama.
+                <br><br>
+                dan jujur saja aku suka kamu gak asal mencintai, tapi aku suka kamu sekarang bukan karena asal suka, tapi aku suka kamu karena aku mencintai mu sama dengan diriku mencintai mie ayam 😋, jadi... kalau ini buat terganggu, kau bisa lupakan aja ini,.. anggap aja pesan ini hanya sebagai sisi lain diriku yang gak bisa move on.. 
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function startApp() {
+            document.getElementById('start-overlay').classList.add('hidden');
+            document.getElementById('main-card').classList.remove('hidden');
+            document.getElementById('music1').play();
+            createBalloons();
+        }
+
+        function createBalloons() {
+            for(let i=0; i<15; i++) {
+                let b = document.createElement('div');
+                b.className = 'balloon';
+                b.style.left = Math.random() * 100 + 'vw';
+                b.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                b.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(b);
+            }
+        }
+
+        function openGift() {
+            document.getElementById('popSound').play();
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+            // Efek Konfeti sederhana
+            for(let i=0; i<30; i++) {
+                let confetti = document.createElement('div');
+                confetti.innerHTML = '🎉';
+                confetti.style.position = 'absolute';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-20px';
+                confetti.style.fontSize = '20px';
+                confetti.style.animation = `float ${Math.random()*3 + 2}s reverse`;
+                document.body.appendChild(confetti);
+            }
+        }
+
+        function showSecret() {
+            // Ganti Suasana
+            document.body.style.backgroundColor = '#000000';
+            document.getElementById('main-card').classList.add('secret-note');
+            
+            // Ganti Musik
+            document.getElementById('music1').pause();
+            document.getElementById('music2').play();
+            
+            // Pindah Step
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
